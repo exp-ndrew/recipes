@@ -4,6 +4,8 @@ class Recipe < ActiveRecord::Base
 
   before_save :capitalize_name
 
+  has_and_belongs_to_many :tags
+
   private
 
   def capitalize_name
@@ -11,8 +13,3 @@ class Recipe < ActiveRecord::Base
   end
 end
 
-def sandwich turkey
-
-  puts
-
-end

@@ -15,11 +15,12 @@ class RecipesController < ApplicationController
       flash[:notice] = "Your recipe was added."
       redirect_to('/recipes')
     else
-      render('recipes/edit.html.erb')
+      render('recipes/new.html.erb')
     end
   end
 
   def show
+    @tags = Tag.all
     @recipe = Recipe.find(params[:id])
     render('recipes/show.html.erb')
   end
