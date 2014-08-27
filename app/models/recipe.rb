@@ -10,3 +10,9 @@ class Recipe < ActiveRecord::Base
     self.name = self.name.capitalize
   end
 end
+
+def sandwich turkey
+
+  puts
+
+end

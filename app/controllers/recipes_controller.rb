@@ -24,4 +24,10 @@ class RecipesController < ApplicationController
     render('recipes/show.html.erb')
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    flash[:notice] = "#{@recipe.name} was removed."
+    redirect_to('/recipes')
+  end
 end

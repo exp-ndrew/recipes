@@ -2,4 +2,6 @@
 
 <p><%= @recipe.description %></p>
 
-<a href="/recipes">Go Back</a>
+<p><a href="/recipes/<%= @recipe.id %>" data-confirm="You sure?" data-method="delete" rel="nofollow">Delete this Recipe</a></p>
+<p><a href="/recipes">Go Back</a></p>
+
