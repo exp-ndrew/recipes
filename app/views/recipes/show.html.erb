@@ -2,6 +2,7 @@
 
 <p><%= @recipe.description %></p>
 
+<p><a href="/recipes/<%= @recipe.id %>/edit">Edit this Recipe</a></p>
 <p><a href="/recipes/<%= @recipe.id %>" data-confirm="You sure?" data-method="delete" rel="nofollow">Delete this Recipe</a></p>
 <p><a href="/recipes">Go Back</a></p>
 
