@@ -1,0 +1,27 @@
+$background-color: #F3F3F4;
+$accent-blue-lt: #0ACCEA;
+$accent-blue-dk: #5F849A;
+$accent-gray: #D7D7D7;
+$body-text: #585858;
+$font-stack: 'Open Sans', 'Helvetica', sans-serif;
+
+body {
+
+  font: 100% $font-stack;
+  color: $body-text;
+  background-color: $background-color;
+}
+
+p {
+  a {
+    color: $body-text;
+    font-weight: 700;
+  }
+  a:hover {
+    @extend a;
+    color: $accent-blue-lt;
+  }
+}
+
+
+
