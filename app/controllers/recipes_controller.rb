@@ -8,4 +8,14 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     render('recipes/new.html.erb')
   end
+
+  def create
+    @recipe = Recipe.new(params[:recipe])
+    if @recipe.save
+      flash[:notice] = "Your recipe was added."
+      redirect_to('/recipes')
+    else
+      render('recipes/edit.html.erb')
+    end
+  end
 end
