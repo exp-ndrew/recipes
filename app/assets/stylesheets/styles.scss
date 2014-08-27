@@ -12,16 +12,15 @@ body {
   background-color: $background-color;
 }
 
-p {
-  a {
-    color: $body-text;
-    font-weight: 700;
-  }
-  a:hover {
-    @extend a;
-    color: $accent-blue-lt;
-  }
+a {
+  color: $body-text;
+  font-weight: 700;
 }
+a:hover {
+  @extend a;
+  color: $accent-blue-lt;
+}
+
 
 
 

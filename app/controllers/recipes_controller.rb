@@ -18,4 +18,10 @@ class RecipesController < ApplicationController
       render('recipes/edit.html.erb')
     end
   end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+    render('recipes/show.html.erb')
+  end
+
 end
