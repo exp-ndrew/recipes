@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   match('tags/:id/edit', {:via => :get, :to => 'tags#edit'})
   match('tags/:id', {:via => [:put, :patch], :to => 'tags#update'})
 
-  match('recipes/:id/tags', {:via => :post, :to => 'assigns#tag_to_item'})
+  match('recipes/:id/tags', {:via => :post, :to => 'assigns#tag_to_recipe'})
 end

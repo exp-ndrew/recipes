@@ -16,7 +16,7 @@ class TagsController < ApplicationController
       flash[:notice] = "Your tag was added."
       redirect_to('/tags')
     else
-      render('tags/edit.html.erb')
+      render('tags/new.html.erb')
     end
   end
 

@@ -1,7 +1,15 @@
 <h1><%= @recipe.name %></h1>
+<h3>Tags</h3>
+<ul>
+  <% @recipe.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</ul>
 
+<h3>Directions</h3>
 <p><%= @recipe.description %></p>
 
+<h3>Add a Tag</h3>
 <form action="/recipes/<%= @recipe.id %>/tags" method="post">
   <select name="tag">
     <% @tags.each do |tag| %>
