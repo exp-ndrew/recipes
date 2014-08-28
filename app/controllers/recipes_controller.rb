@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.sorted_by_rating
     render('recipes/index.html.erb')
   end
 
