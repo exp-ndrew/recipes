@@ -21,6 +21,20 @@ a:hover {
   color: $accent-blue-lt;
 }
 
+li {
+
+  a {
+    @extend a;
+    color: $body-text;
+    font-weight: 400;
+  }
+
+  a:hover {
+    color: $accent-blue-lt;
+  }
+
+
+}
 
 
 
