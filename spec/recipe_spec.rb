@@ -5,7 +5,7 @@ describe Recipe do
   it { should validate_presence_of :name }
   it { should validate_presence_of :description }
   it { should have_and_belong_to_many :tags}
-  it { should belong_to :rating }
+  it { should have_and_belong_to_many :ratings }
 
   describe 'capitalize_name' do
     it 'capitalizes first word in name' do

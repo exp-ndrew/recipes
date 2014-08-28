@@ -2,14 +2,9 @@
 
 <ul>
   <% @recipes.each do |recipe| %>
-    <% if recipe.rating.stars >= 4 %>
-      <li class="favorite"><a class="favorite" href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
-    <% else %>
-        <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
-    <% end %>
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
   <% end %>
 </ul>
-<p class="favorite_note">Bolded entries have 4 or more stars.</p>
 
 <p>Make a <a href="/recipes/new">New Recipe</a></p>
 

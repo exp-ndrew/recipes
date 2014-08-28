@@ -30,16 +30,15 @@ class AssignsController < ApplicationController
     if @rating.stars == 0
       rating_from_recipe
     else
-      @recipe.rating_id = @rating.id
-      @recipe.save
-      flash[:notice] = "This recipe is a #{@rating.stars}-star recipe."
+      @recipe.ratings << @rating
+      flash[:notice] = "Your #{@rating.stars}-star rating was saved."
       redirect_to("/recipes/#{@recipe.id}")
     end
   end
 
   def rating_from_recipe
     @recipe = Recipe.find(params[:id])
-    @recipe.rating_id = nil
+    @recipe.ratings = nil
     @recipe.save
     flash[:notice] = "This recipe's rating was removed."
     redirect_to("/recipes/#{@recipe.id}")

@@ -7,14 +7,10 @@ class Recipe < ActiveRecord::Base
   before_save :capitalize_name
 
   has_and_belongs_to_many :tags, -> { uniq }
-  belongs_to :rating
+  has_and_belongs_to_many :ratings
 
-  def print_stars
-    result = ''
-    self.rating.stars.times do
-      result += "\u2605"
-    end
-    result.encode('utf-8')
+  def calculate_average_rating
+    (self.ratings.sum(:stars) / self.ratings.count(:stars).to_f).round(2)
   end
 
   scope :favorites, -> { Recipe.joins(:rating).where('ratings.stars >= ?', 4) }
