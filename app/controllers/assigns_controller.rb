@@ -23,4 +23,13 @@ class AssignsController < ApplicationController
     flash[:notice] = "The recipe for '#{@recipe.name}' was removed."
     redirect_to("/tags/#{@tag.id}")
   end
+
+  def rating_to_recipe
+    @recipe = Recipe.find(params[:id])
+    @rating = Rating.find(params[:rating])
+    @recipe.rating_id = @rating.id
+    @recipe.save
+    flash[:notice] = "This recipe is a #{@rating.stars}-star recipe."
+    redirect_to("/recipes/#{@recipe.id}")
+  end
 end

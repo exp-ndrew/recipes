@@ -9,6 +9,14 @@ class Recipe < ActiveRecord::Base
   has_and_belongs_to_many :tags, -> { uniq }
   belongs_to :rating
 
+  def print_stars
+    result = ''
+    self.rating.stars.times do
+      result += "\u2605"
+    end
+    result.encode('utf-8')
+  end
+
   private
 
   def capitalize_name

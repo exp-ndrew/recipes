@@ -1,4 +1,9 @@
-<h1><%= @recipe.name %></h1>
+<h1><%= @recipe.name %>
+  <% if @recipe.rating != nil %>
+    <%= @recipe.print_stars %>
+  <% end %>
+
+</h1>
 <h3>Tags</h3>
 <ul>
   <% if @recipe.tags.length == 0 %>
@@ -21,6 +26,20 @@
     <% end %>
   </select>
   <button>Add Tag</button>
+</form>
+
+<h3>Rating</h3>
+<form action="/recipes/<%= @recipe.id %>/rating" method="post">
+  <select name="rating">
+    <% @rating.each do |rating| %>
+      <% if rating.stars == 0 %>
+        <option value="6">(none)</option>
+      <% else %>
+        <option value="<%= rating.id %>"><%= rating.stars %></option>
+      <% end %>
+    <% end %>
+  </select>
+  <button>Set Rating</button>
 </form>
 
 <p><a href="/recipes/<%= @recipe.id %>/edit">Edit this Recipe</a></p>
