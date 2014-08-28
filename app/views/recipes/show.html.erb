@@ -1,8 +1,12 @@
 <h1><%= @recipe.name %></h1>
 <h3>Tags</h3>
 <ul>
-  <% @recipe.tags.each do |tag| %>
-    <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a></li>
+  <% if @recipe.tags.length == 0 %>
+    <li>No tags</li>
+   <% else %>
+    <% @recipe.tags.each do |tag| %>
+    <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a> <a href="/recipes/<%= @recipe.id %>/tags/<%= tag.id %>" data-confirm="You sure?" data-method="delete" rel="nofollow">(remove tag)</a></li>
+    <% end %>
   <% end %>
 </ul>
 

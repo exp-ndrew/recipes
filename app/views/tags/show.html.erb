@@ -1,11 +1,15 @@
 <h1><%= @tag.name %></h1>
 
 <h3>Recipes</h3>
-<ul>
-  <% @tag.recipes.each do |recipe| %>
-    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
-  <% end %>
-</ul>
+<% if @tag.recipes.length == 0 %>
+  <li>No recipes</li>
+<% else %>
+  <ul>
+    <% @tag.recipes.each do |recipe| %>
+      <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a> <a href="/tags/<%= @tag.id %>/recipes/<%= recipe.id %>" data-confirm="You sure?" data-method="delete" rel="nofollow">(remove recipe)</a></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <p><a href="/tags/<%= @tag.id %>/edit">Edit this Tag</a></p>
 <p><a href="/tags/<%= @tag.id %>" data-confirm="You sure?" data-method="delete" rel="nofollow">Delete this Tag</a></p>
