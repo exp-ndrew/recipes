@@ -23,6 +23,8 @@ a:hover {
 
 li {
 
+  list-style: none;
+
   a {
     @extend a;
     color: $body-text;
@@ -33,6 +35,20 @@ li {
     color: $accent-blue-lt;
   }
 
+  a.favorite {
+    @extend a;
+    font-weight: 700;
+  }
+
+}
+
+li.favorite {
+  list-style: circle;
+}
+
+p.favorite_note {
+  list-style: circle;
+  font-weight: 700;
 }
 
 h1 {

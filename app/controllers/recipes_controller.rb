@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.joins(:rating).order('ratings.stars DESC')
     render('recipes/index.html.erb')
   end
 
