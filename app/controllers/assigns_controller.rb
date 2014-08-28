@@ -23,5 +23,4 @@ class AssignsController < ApplicationController
     flash[:notice] = "The recipe for '#{@recipe.name}' was removed."
     redirect_to("/tags/#{@tag.id}")
   end
-
 end

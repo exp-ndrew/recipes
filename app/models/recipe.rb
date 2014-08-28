@@ -7,6 +7,7 @@ class Recipe < ActiveRecord::Base
   before_save :capitalize_name
 
   has_and_belongs_to_many :tags, -> { uniq }
+  belongs_to :rating
 
   private
 
