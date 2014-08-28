@@ -33,7 +33,7 @@
   <select name="rating">
     <% @rating.each do |rating| %>
       <% if rating.stars == 0 %>
-        <option value="6">(none)</option>
+        <option value="<%= rating.id %>">(remove)</option>
       <% else %>
         <option value="<%= rating.id %>"><%= rating.stars %></option>
       <% end %>

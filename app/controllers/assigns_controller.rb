@@ -27,9 +27,22 @@ class AssignsController < ApplicationController
   def rating_to_recipe
     @recipe = Recipe.find(params[:id])
     @rating = Rating.find(params[:rating])
-    @recipe.rating_id = @rating.id
+    if @rating.stars == 0
+      rating_from_recipe
+    else
+      @recipe.rating_id = @rating.id
+      @recipe.save
+      flash[:notice] = "This recipe is a #{@rating.stars}-star recipe."
+      redirect_to("/recipes/#{@recipe.id}")
+    end
+  end
+
+  def rating_from_recipe
+    @recipe = Recipe.find(params[:id])
+    @recipe.rating_id = nil
     @recipe.save
-    flash[:notice] = "This recipe is a #{@rating.stars}-star recipe."
+    flash[:notice] = "This recipe's rating was removed."
     redirect_to("/recipes/#{@recipe.id}")
   end
+
 end
