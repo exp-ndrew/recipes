@@ -17,6 +17,8 @@ class Recipe < ActiveRecord::Base
     result.encode('utf-8')
   end
 
+  scope :favorites, -> { Recipe.joins(:rating).where('ratings.stars >= ?', 4) }
+
   private
 
   def capitalize_name
@@ -29,4 +31,3 @@ class Recipe < ActiveRecord::Base
     end
   end
 end
-
